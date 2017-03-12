@@ -29,6 +29,7 @@ int main(void)
 
 	char *license = read_entire_file("LICENSE");
 	long fsize = strlen(license); /* Yes. I know */
+	fprintf(stderr, "Using file %d bytes long\n", fsize);
 	char *buffer = malloc(fsize + 1);
 	long runs = 1000000; /* 1 million dollars */
 
@@ -58,6 +59,7 @@ int main(void)
 	end = clock();
 	fprintf(stderr, "Runs     | Time taken\n");
 	fprintf(stderr, "%8d   %f\n", runs, (end - start) / (double)CLOCKS_PER_SEC);
+	fprintf(stderr, "per run: %f\n", (end - start) / (double)CLOCKS_PER_SEC / runs);
 
     return 0;
 	}
